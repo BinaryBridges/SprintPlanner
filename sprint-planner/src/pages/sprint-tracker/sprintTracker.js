@@ -1,6 +1,9 @@
-import { Box } from "@mui/material";
+import { Box} from "@mui/material";
 import TopBar from "../../components/top-bar/TopBar";
+import TaskBox from "../../components/task-box/TaskBox";
 import SprintBox from "../../components/sprint-box/SprintBox";
+import colors from "../../colors";
+
 
 const SprintTracker = () => {
     return (
@@ -16,8 +19,8 @@ const SprintTracker = () => {
             <Box sx={{ flex: '60%', bgcolor: 'lightblue'}}>
                 <SprintBox />
             </Box>
-            <Box sx={{ flex: '40%', bgcolor: 'lightcoral'}}>
-                Section 2
+            <Box sx={{ flex: '40%', bgcolor: colors.background}}>
+                <TaskBox></TaskBox>
             </Box>
         </Box>
     </Box>
