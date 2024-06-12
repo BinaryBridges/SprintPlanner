@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import SprintTracker from './pages/sprint-tracker/sprintTracker';
 

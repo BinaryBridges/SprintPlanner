@@ -1,7 +1,6 @@
-import { Box, CssBaseline } from "@mui/material";
+import { Box } from "@mui/material";
 import TopBar from "../../components/top-bar/TopBar";
-
-
+import SprintBox from "../../components/sprint-box/SprintBox";
 
 const SprintTracker = () => {
     return (
@@ -15,7 +14,7 @@ const SprintTracker = () => {
             }}
         >
             <Box sx={{ flex: '60%', bgcolor: 'lightblue'}}>
-                Section 1
+                <SprintBox />
             </Box>
             <Box sx={{ flex: '40%', bgcolor: 'lightcoral'}}>
                 Section 2
