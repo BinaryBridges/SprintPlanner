@@ -1,30 +1,41 @@
+import React from "react";
 import { Stack, Paper, Typography, Box } from "@mui/material";
 import colors from "../../colors";
 import TaskBox from "../task-box/TaskBox";
 
+const SprintBox = ({ sprintTitle, tasks, onDragOver, onDrop, onDragStart, isUnassigned }) => {
+  return (
+    <Paper
+      sx={{
+        minWidth: 300,
+        margin: 3,
+        textAlign: "center",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+      }}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
+      elevation={0}
+    >
+      <Box sx={{ marginTop: 3 }}>
+        <Typography color={colors.text} fontSize={22}>
+          {sprintTitle}
+        </Typography>
+      </Box>
+      <Box sx={{ overflow: "auto", padding: 3, maxHeight: 300 }}>
+        <Stack 
+          direction={isUnassigned ? "row" : "column"} 
+          spacing={1}
+          alignItems={isUnassigned ? "flex-start" : "center"}
+        >
+          {tasks.map((task, index) => (
+            <TaskBox key={index} task={task} onDragStart={onDragStart} />
+          ))}
+        </Stack>
+      </Box>
+    </Paper>
+  );
+};
 
-const SprintBox = ({sprintNumber, tasks}) => {
-
-    console.log(tasks)
-
-    return (
-        <Paper sx={{display: "flex", minWidth:300, margin: 3, textAlign: "center", marginBottom: 3, flexDirection: "column", maxHeight: 475, height: 1}}>
-            <Box sx={{width: "100%", marginTop: 3}}>
-                <Typography color={colors.text} fontSize={20}>Sprint {sprintNumber}</Typography>
-            </Box>
-            <Box sx={{overflow: "scroll", overflow: "auto", padding: 3}}>
-            <Stack direction="column" spacing={1} sx={{textAlign: "center", width: "100%"}}>
-            
-                {tasks.map((values) => (
-                    <TaskBox />
-                ))
-
-                }
-            </Stack>
-            </Box>
-            
-        </Paper>
-    )
-}
-
-export default SprintBox
+export default SprintBox;
